@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  db:
+    container_name: reqcover_db
+    image: mariadb
+    restart: always
+    env_file:
+      - ".env"
+    environment:
+      - MARIADB_ROOT_PASSWORD=$ROOT_PASS
+      - MARIADB_USER=$DB_USER
+      - MARIADB_PASSWORD=$DB_PASS
+      - MARIADB_DATABASE=$DB_NAME
+      - TZ=Europe/Kiev
+    ports:
+      - "3306:3306"
